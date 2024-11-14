@@ -1,0 +1,3 @@
+start:
+MOV AX,0XFFF9
+ADD AX,0X0000
