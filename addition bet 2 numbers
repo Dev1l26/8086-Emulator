@@ -1,0 +1,16 @@
+n1: db 55
+n2: db 60
+start:
+mov si, 0x00
+mov al, byte[si]
+mov di, 0x01
+mov bl, byte[di]
+addition:
+cmp bl,al
+jc halt
+add dl,bl
+dec bl
+jmp addition
+halt:
+mov byte [0x0010],dl
+hlt
