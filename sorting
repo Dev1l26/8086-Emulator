@@ -1,0 +1,25 @@
+A:DB 0x1b
+B:DB 0x5a
+C:DB 0x3d
+D:DB 0x1c
+E:DB 0x2e 
+start:
+MOV SI, 0x0000
+MOV CH, 0x0004
+MOV CL, 0x0004
+outer:
+MOV AL, byte [SI]
+INC SI
+CMP AL, byte[SI]
+JC inner
+XCHG AL, byte[SI] 
+DEC SI
+XCHG byte[SI], AL
+INC SI
+inner:
+DEC CL
+JNZ outer 
+MOV CL, 0x0005
+MOV SI, 0x0000
+DEC CH 
+JNZ inner
